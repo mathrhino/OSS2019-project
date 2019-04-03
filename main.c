@@ -12,6 +12,7 @@
 int main(void){
   char input[2048];
   int i,is_number,reverse,sort;
+  char* binarized;
 
   while(fgets(input, sizeof(input), stdin) != NULL){
     // Receive a user input
@@ -34,8 +35,15 @@ int main(void){
     if(is_number){
 	    reverse = reverse_digits(atoi(input));
 	    sort = sort_digits(atoi(input));
+	    binarized = binarize(atoi(input));
 	    printf("reverse> %d\nsort> %d\n",reverse, sort);
+	    printf("binarize> ");
+	    for(i=strlen(binarized)-1;i>=0;i--){
+		    printf("%c",binarized[i]);
+	    }
+	    printf("\n");
     }
+    free(binarized);
   }
 
   // Terminating
